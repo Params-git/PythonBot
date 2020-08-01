@@ -57,15 +57,13 @@ def main():
                     first_chat_text = 'New member'
                 else:
                     first_chat_text = current_update['message']['text']
+                    
                 first_chat_id = current_update['message']['chat']['id']
                 if 'first_name' in current_update['message']:
                     first_chat_name = current_update['message']['chat']['first_name']
-                elif 'new_chat_member' in current_update['message']:
-                    first_chat_name = current_update['message']['new_chat_member']['username']
                 elif 'from' in current_update['message']:
                     first_chat_name = current_update['message']['from']['first_name']
-                else:
-                    first_chat_name = "unknown"
+                
 
                 now = datetime.now()
                 time = now.strftime("%I:%H:%S %p")
